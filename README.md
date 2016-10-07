@@ -695,6 +695,6 @@ If you want to add something or you wish to make this guide better I welcome pul
 
 ### Credits
 
-- Ion Suman
+- Ion Suman ([sumanion122@gmail.com](mailto:sumanion122@gmail.com))
 - DigitalOcean Community Tutorials
 - DeployBot Guide
