@@ -586,7 +586,7 @@ Once you downloaded the certificate you have to install it.
 bundle file to be able to install the certificate successfully,
 and if you don't have that bundle file it is easy to create one.
 
-> **Note:** I will show how to create a bundle file for Comodo 
+> **Note:** I will show you how to create a bundle file for Comodo 
 certificates, for another CA's the next code may be a bit different:
 
 ```bash
@@ -688,8 +688,7 @@ su - root -c "service nginx reload"
 
 ### Contributing
 
-If you want to add something or you wish to make this guide better  
-I welcome pull requests.
+If you want to add something or you wish to make this guide better I welcome pull requests.
 
 <br>
 <br>
