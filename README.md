@@ -578,7 +578,7 @@ Next, copy the CSR:
 cat example.com.csr
 ```
 
-Then, open you CA and request a certificate using generated CSR.
+Then, open your Certificate Authority and request a certificate using generated CSR.
 
 Once you downloaded the certificate you have to install it.
 
