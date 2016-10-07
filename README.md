@@ -5,7 +5,8 @@
 [4]: https://cloud.digitalocean.com/droplets/new
 
 <p align="center">
-
+    
+    <br>
     <a href="https://www.digitalocean.com/"><img src="images/digitalocean-logo.png" width="100"></a>
     <a href="#"><img src="images/plus.png" width="100"></a>
     <a href="https://laravel.com/"><img src="images/laravel-logo.png" width="100"></a>
