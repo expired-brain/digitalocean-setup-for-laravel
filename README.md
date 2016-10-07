@@ -65,7 +65,7 @@ In this step-by-step guide I will show you how to setup your *DigitalOcean Dropl
 
 <br>
 
-##### 1.1. Create the Droplet
+#### 1.1. Create the Droplet
 
 First of all you have to create a new [Droplet][4]. 
 On the *Droplet* creation page select all the options which match your needs, 
@@ -80,7 +80,7 @@ which stands for (Linux, Nginx, MySQL and PHP), like in the image below:
 
 <br>
 
-##### 1.2. Connect to your Droplet
+#### 1.2. Connect to your Droplet
 
 When you have created the *Droplet* SSH into it:
 
@@ -94,7 +94,7 @@ ssh root@123.456.789.0
 
 <br>
 
-##### 1.3. Remove the Message of the Day
+#### 1.3. Remove the Message of the Day
 
 When you connect to your *Droplet* for the first time you will see a 
 *Message of the Day* which will contain some useful information 
@@ -106,7 +106,7 @@ rm -rf /etc/update-motd.d/99-one-click
 
 <br>
 
-##### 1.4. Fix unset locale values
+#### 1.4. Fix unset locale values
 
 Usually some locale values are not set by default which will generate
 a lot of warnings in the future, but luckily there is a simple fix:
@@ -126,7 +126,7 @@ Then, reload your shell and locale values should be fixed.
 
 <br>
 
-##### 1.5. Update System Packages
+#### 1.5. Update System Packages
 
 Make sure that the system is fully up-to-date:
 
@@ -138,7 +138,7 @@ sudo apt-get install zip unzip
 
 <br>
 
-##### 1.6. Add an SSH Key
+#### 1.6. Add an SSH Key
 
 If you want a more secure way to connect to your *Droplet* you 
 should consider adding an SSH Key.
@@ -182,7 +182,7 @@ ssh root@123.456.789.0
 
 <br>
 
-##### 2.1. Timezone
+#### 2.1. Timezone
 
 You may want to set a timezone for your *Droplet* which will match you location:
 
@@ -192,7 +192,7 @@ sudo dpkg-reconfigure tzdata
 
 <br>
 
-##### 2.2. NTP Synchronization
+#### 2.2. NTP Synchronization
 
 Make sure that your *Droplet* has the correct time:
 
@@ -202,7 +202,7 @@ sudo apt-get install ntp
 
 <br>
 
-##### 2.3. MySQL
+#### 2.3. MySQL
 
 First, find the default MySQL password:
 
@@ -249,7 +249,7 @@ FLUSH PRIVILEGES;
 
 <br>
 
-##### 2.4. PHP
+#### 2.4. PHP
 
 *Laravel* requires several php modules, 
 and you should have all of them enabled:
@@ -312,7 +312,7 @@ Now, all the changes you've made should be implemented.
 
 <br>
 
-##### 2.5. Nginx
+#### 2.5. Nginx
 
 Remove default nginx vhosts which are currently enabled:
 
@@ -323,7 +323,7 @@ service nginx reload
 
 <br>
 
-##### 2.6. Users
+#### 2.6. Users
 
 You may want to create a new user to manage your *Laravel* 
 applications instead of using the `root` user all the time:
@@ -383,7 +383,7 @@ ssh demouser@123.456.789.0
 
 <br>
 
-##### 3.1. Directories
+#### 3.1. Directories
 
 Create required directories for your future applications:
 
@@ -407,7 +407,7 @@ mkdir -p /home/demouser/logs
 
 <br>
 
-##### 3.2. Composer
+#### 3.2. Composer
 
 To install *Laravel* you have to install Composer first:
 
@@ -418,7 +418,7 @@ su - root -c "curl -sS https://getcomposer.org/installer | php; mv composer.phar
 
 <br>
 
-##### 3.3. Source
+#### 3.3. Source
 
 Install your application:
 
@@ -459,7 +459,7 @@ setfacl -R -d -m g::wrx /home/demouser/apps/default/bootstrap/cache
 
 <br>
 
-##### 3.4. Vhost
+#### 3.4. Vhost
 
 To make your application accessible from the web, 
 create a vhost:
@@ -553,7 +553,7 @@ where `123.456.789.0` is your *Droplet*'s IP.
 
 <br>
 
-##### 3.5. SSL
+#### 3.5. SSL
 
 To add additional security to your web application during data transfer 
 you should consider adding an SSL certificate.
