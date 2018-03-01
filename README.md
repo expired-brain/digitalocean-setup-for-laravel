@@ -5,30 +5,28 @@
 [4]: https://cloud.digitalocean.com/droplets/new
 
 <p align="center">
-    
     <br>
     <a href="https://www.digitalocean.com/"><img src="images/digitalocean-logo.png" width="100"></a>
     <a href="#"><img src="images/plus.png" width="100"></a>
     <a href="https://laravel.com/"><img src="images/laravel-logo.png" width="100"></a>
     &nbsp; &nbsp; &nbsp;
     <a href="#"><img src="images/made-easy.png" width="100"></a>
-
 </p>
 
 <br><br>
 
-There is an official service called [Forge][3] from [Laravel][2] which 
-will setup your [DigitalOcean][1] *Droplets* for you in no time and 
+There is an official service called [Forge][3] from [Laravel][2] which
+will setup your [DigitalOcean][1] *Droplets* for you in no time and
 I totally love it. *Forge* has an incredible UI and it was a pleasure for me
-to use it for months and I strongly recommend you to at least try it, 
-but if you are like me and want to know what happens behind the scenes 
-and if you want to know how to setup your *Droplets* by yourself, 
+to use it for months and I strongly recommend you to at least try it,
+but if you are like me and want to know what happens behind the scenes
+and if you want to know how to setup your *Droplets* by yourself,
 then this step-by-step guide is for you.
 
-In this step-by-step guide I will show you how to setup your *DigitalOcean Droplets* and run your *Laravel* applications on them. 
+In this step-by-step guide I will show you how to setup your *DigitalOcean Droplets* and run your *Laravel* applications on them.
 
-> **Note:** I want to keep this guide as short as possible and 
-> I won't include here all the details, so if you feel that 
+> **Note:** I want to keep this guide as short as possible and
+> I won't include here all the details, so if you feel that
 > you don't understand something then Google is your friend.
 
 <br>
@@ -67,9 +65,9 @@ In this step-by-step guide I will show you how to setup your *DigitalOcean Dropl
 
 #### 1.1. Create the Droplet
 
-First of all you have to create a new [Droplet][4]. 
-On the *Droplet* creation page select all the options which match your needs, 
-but make sure the *Droplet* image is set to **LEMP on 16.04** or above, 
+First of all you have to create a new [Droplet][4].
+On the *Droplet* creation page select all the options which match your needs,
+but make sure the *Droplet* image is set to **LEMP on 16.04** or above,
 which stands for (Linux, Nginx, MySQL and PHP), like in the image below:
 
 <br>
@@ -89,15 +87,15 @@ When you have created the *Droplet* SSH into it:
 ssh root@123.456.789.0
 ```
 
-> **_Note:_** 
+> **_Note:_**
 > *If you didn't add an SSH Key then your password should be emailed to you.*
 
 <br>
 
 #### 1.3. Remove the Message of the Day
 
-When you connect to your *Droplet* for the first time you will see a 
-*Message of the Day* which will contain some useful information 
+When you connect to your *Droplet* for the first time you will see a
+*Message of the Day* which will contain some useful information
 about your *Droplet*. After you have read it you can safely remove it:
 
 ```bash
@@ -140,7 +138,7 @@ sudo apt-get install zip unzip
 
 #### 1.6. Add an SSH Key
 
-If you want a more secure way to connect to your *Droplet* you 
+If you want a more secure way to connect to your *Droplet* you
 should consider adding an SSH Key.
 
 First, create a new SSH Key:
@@ -173,7 +171,7 @@ Now, you should be able to connect to your *Droplet* without the password:
 ```bash
 # Note: Instead of '123.456.789.0' should be your Droplet's IP.
 ssh root@123.456.789.0
-``` 
+```
 
 <br>
 <br>
@@ -216,7 +214,7 @@ Now, start to configure the MySQL:
 mysql_secure_installation
 ```
 
-When you have finished the configuration you can delete 
+When you have finished the configuration you can delete
 the file containing the default MySQL password:
 
 ```bash
@@ -251,7 +249,7 @@ FLUSH PRIVILEGES;
 
 #### 2.4. PHP
 
-*Laravel* requires several php modules, 
+*Laravel* requires several php modules,
 and you should have all of them enabled:
 
 ```bash
@@ -275,7 +273,7 @@ sudo apt-get install php7.0-mbstring
 phpenmod mbstring
 ```
 
-Install XML extension even if it is displayed in PHP's 
+Install XML extension even if it is displayed in PHP's
 configuration to avoid errors in the future:
 
 ```bash
@@ -289,7 +287,7 @@ Next, you have to update the PHP-fpm configuration file:
 sudo nano /etc/php/7.0/fpm/php.ini
 ```
 
-Once you have opened the configuration file 
+Once you have opened the configuration file
 search for `cgi.fix_pathinfo` *(CTRL+W)*,
 uncomment it and make sure it's value is set to `0`:
 
@@ -297,10 +295,10 @@ uncomment it and make sure it's value is set to `0`:
 cgi.fix_pathinfo=0
 ```
 
-> **Note:** 
+> **Note:**
 > *You can also change another configuration values to match your needs.*
 
-After that, save changes in the configuration file 
+After that, save changes in the configuration file
 and restart the PHP-fpm service:
 
 ```bash
@@ -325,7 +323,7 @@ service nginx reload
 
 #### 2.6. Users
 
-You may want to create a new user to manage your *Laravel* 
+You may want to create a new user to manage your *Laravel*
 applications instead of using the `root` user all the time:
 
 ```bash
@@ -371,7 +369,7 @@ service nginx reload
 
 ### 3. Application
 
-Close current SSH session and open another one with the user 
+Close current SSH session and open another one with the user
 you have created in the previous step.
 
 ```bash
@@ -442,7 +440,7 @@ cp .env.example .env
 nano .env
 ```
 
-> **Important:** *Laravel* requires some directories to be writable 
+> **Important:** *Laravel* requires some directories to be writable
 or it will not run:
 
 ```bash
@@ -461,7 +459,7 @@ setfacl -R -d -m g::wrx /home/demouser/apps/default/bootstrap/cache
 
 #### 3.4. Vhost
 
-To make your application accessible from the web, 
+To make your application accessible from the web,
 create a vhost:
 
 ```bash
@@ -518,8 +516,8 @@ server {
 }
 ```
 
-> **Important:** 
-> Make sure the `fastcgi_pass` has a valid path to your PHP-fpm sock. 
+> **Important:**
+> Make sure the `fastcgi_pass` has a valid path to your PHP-fpm sock.
 > It is easy to verify your current PHP-fpm sock path:
 
 ```bash
@@ -527,7 +525,7 @@ server {
 grep "^listen\s*=\s*/run" /etc/php/7.0/fpm/pool.d/www.conf
 ```
 
-After you created the server block and saved the vhost 
+After you created the server block and saved the vhost
 create a symlink to the nginx's `sites-enabled` directory:
 
 ```bash
@@ -544,9 +542,9 @@ Next, reload nginx to make your application available from the web:
 su - root -c "service nginx reload"
 ```
 
-**DONE!** 
+**DONE!**
 Now your application should be available in the browser!
-You can access it in browser `http://123.456.789.0/` 
+You can access it in browser `http://123.456.789.0/`
 where `123.456.789.0` is your *Droplet*'s IP.
 
 > **Note:** *If you have a domain name and want to use it instead of the IP address just replace word `localhost` with `domain.com www.domain.com` where `domain.com` is your domain name in the server block of vhost file and add an `A` record to the domain name with the name `@` and value matching your Droplet's IP.*
@@ -555,7 +553,7 @@ where `123.456.789.0` is your *Droplet*'s IP.
 
 #### 3.5. SSL
 
-To add additional security to your web application during data transfer 
+To add additional security to your web application during data transfer
 you should consider adding an SSL certificate.
 
 > **Important:** *You should own a domain name and a valid SSL certificate in order to be able to complete this step.*
@@ -582,11 +580,11 @@ Then, open your Certificate Authority and request a certificate using generated 
 
 Once you downloaded the certificate you have to install it.
 
-> **Important:** Sometimes you have to create a certificate 
+> **Important:** Sometimes you have to create a certificate
 bundle file to be able to install the certificate successfully,
 and if you don't have that bundle file it is easy to create one.
 
-> **Note:** I will show you how to create a bundle file for Comodo 
+> **Note:** I will show you how to create a bundle file for Comodo
 certificates, for another CA's the next code may be a bit different:
 
 ```bash
